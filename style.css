@@ -1,0 +1,55 @@
+body {
+    font: 12px sans-serif;
+    background-color: rgb(230, 234, 238);
+}
+
+h1 {
+    color: rgb(25, 32, 65);
+}
+
+p {
+    color: rgb(58, 64, 94);
+}
+.map path {
+    stroke-width: 1px;
+    stroke: white;
+    fill: rgb(124, 218, 160);
+}
+
+.map path.GM0363 {
+    fill: rgb(60, 197, 122);
+}
+
+.map circle {
+    fill: rgb(23, 44, 231);
+    transition: fill .100s;
+}
+
+.map circle:hover {
+    fill: rgb(186, 53, 204);
+}
+
+.map svg {
+    position: relative;
+    background-color: rgb(181, 212, 236);
+}
+
+.brush path.area {
+    fill: rgb(23, 44, 231);
+}
+
+div.tooltip {
+    position: absolute;
+    width: auto;
+    max-width: 160px;
+    height: auto;
+    padding: 4px 6px;
+    font: 12px sans-serif;
+    background: white;
+    border: 0px;
+    border-radius: 3px;
+    pointer-events: none;
+    -webkit-box-shadow: 0px 4px 20px -5px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 4px 20px -5px rgba(0,0,0,0.75);
+    box-shadow: 0px 4px 20px -5px rgba(0,0,0,0.75);
+}
