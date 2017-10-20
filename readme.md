@@ -19,7 +19,7 @@ I used the following examples and data:
 
 # Data
 
-## Upcoming festivals in Amsterdam
+### Upcoming festivals in Amsterdam
 
 All festivals in Amsterdam and the surrounding area as definined by "Amsterdam Marketing". This file gets updated daily with the latest Festivals and only contains upcoming Festivals, not past ones. (My version was downloaded on October 11th 2017) Data from [`data.amsterdam.nl`][https://open.data.amsterdam.nl/Festivals.csv].
 
@@ -261,11 +261,11 @@ I also increased the heigth of the area chart so that it became more readable fo
 While working on this assessment I ran into a couple of bugs that took a lot of time to resolve.
 The most diffucult of which are the following:
 
-### 1. Making sure the area chart showed the amount of festivals per date
+#### 1. Making sure the area chart showed the amount of festivals per date
 *   It took me quite a while to figure out why the area chart wasn't showing a logival graph, at first it was all over the place.
     I had set the dates into a string and eventually I found out the chart couldn't read that so I had to change it into actual dates (see above).
 
-### 2. Getting the festival locations on the map
+#### 2. Getting the festival locations on the map
 *   While setting up the `.selectall("circle")` function was possible to do, it didn't give me any results on the map.
     It took me quite some time of troubleshooting and testing a lot of options before me and my duck found out it was caused by wrong number notation (see above).
 
