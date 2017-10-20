@@ -276,6 +276,7 @@ The most diffucult of which are the following:
 * 2. Add a zoom function to the map so users can take a closer look when festival dots are cluttered
 * 3. Add more detail to the map (i.e. streets etc.). Perhaphs with google maps?
 * 4. Add even more information to the tooltip so users can learn a lot about the festivals and maybe even visit their websites
+* 5. Look into the data as to why there is a huge spike in november 2017 and a strange flat bar in september/october 2018.
 
 # License
 
