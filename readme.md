@@ -274,7 +274,7 @@ While working on this assessment I ran into a couple of bugs that took a lot of 
 The most diffucult of which are the following:
 
 #### 1. Making sure the area chart showed the amount of festivals per date
-*   It took me quite a while to figure out why the area chart wasn't showing a logival graph, at first it was all over the place.
+*   It took me quite a while to figure out why the area chart wasn't showing a logical graph, at first it was all over the place.
     I had set the dates into a string and eventually I found out the chart couldn't read that so I had to change it into actual dates (see above).
 
 #### 2. Getting the festival locations on the map
