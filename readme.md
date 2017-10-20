@@ -273,7 +273,9 @@ The most diffucult of which are the following:
 # To Do
 
 * 1. Create a horizontal bar chart with the festivals that more closely resembles a timetable.
-
+* 2. Add a zoom function to the map so users can take a closer look when festival dots are cluttered
+* 3. Add more detail to the map (i.e. streets etc.). Perhaphs with google maps?
+* 4. Add even more information to the tooltip so users can learn a lot about the festivals and maybe even visit their websites
 
 # License
 
