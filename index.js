@@ -269,6 +269,7 @@ class FestivalBrush {
             .domain(d3.extent(date_array))
             .range([0, this.dimensions.width]) // Use the width of the svg to calculate positions of the ticks
 
+        // Set the Y scale
         this.position.y = d3.scaleLinear() // Create a linear scale to show the counts per date
             .domain([0, d3.max(data, (d) => d.count)]) // Get the highest count from the data
             .range([this.dimensions.height, 0]) // Use the height of the svg to set available room
@@ -310,7 +311,7 @@ class FestivalBrush {
         var d = d3.event.selection.map(this.position.x.invert)
         // Passes it to the `handleBrush` function in the App class,
         // which in turn will send it to the map.
-        this.handleBrush({
+        this.handleBrush({ // Create an object with start and end date.
             start: d[0],
             end: d[1]
         })
