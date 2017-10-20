@@ -68,18 +68,18 @@ Comma-separated values (CSV) with 169 rows and 25 columns:
 
 # Features
 * [`d3.csv`](https://github.com/d3/d3-request/blob/master/README.md#csv)- Returns a new request for the CSV file at the specified url with the default mime type text/csv.
-* [`d3.time`](https://github.com/d3/d3-time-format#timeParse) - `d3.timeParse` and `d3.timeMonth` -
+* [`d3.time`](https://github.com/d3/d3-time-format#timeParse) - `d3.timeParse` and `d3.timeMonth` - Parse the time to the correct format and set human readable ticks to month.
 * [`d3.select`](https://github.com/d3/d3-selection/blob/master/README.md#selection_select) - Selects the first element that matches the specified selector string.
 * [`d3.geo`](https://github.com/d3/d3-geo/blob/master/README.md#geoPath) - `d3.geoMercator` and `d3.geoPath` - Spherical Mercator projection & create a new geographic path generator.
-* [`d3.json`](https://github.com/d3/d3-request/blob/master/README.md#json) - get a JSON file.
-* [`d3.event`](https://github.com/d3/d3-selection/blob/master/README.md#event) - the current user event, during interaction.
+* [`d3.json`](https://github.com/d3/d3-request/blob/master/README.md#json) - Get a JSON file.
+* [`d3.event`](https://github.com/d3/d3-selection/blob/master/README.md#event) - The current user event, during interaction.
 * [`d3.scale`](https://github.com/d3/d3-scale) - `d3.scaleTime` and `d3.scaleLinear` - Constructs new time scale and continuous scale.
 * [`d3.extent`](https://github.com/d3/d3-array/blob/master/README.md#extent) - Returns the minimum and maximum value in the given array using natural order.
-* [`d3.max`](https://github.com/d3/d3-array/blob/master/README.md#max) - compute the maximum value in an array.
-* [`d3.axisBottom`](https://github.com/d3/d3-axis/blob/master/README.md#axisBottom) - create a new bottom-oriented axis generator.
-* [`d3.area`](https://github.com/d3/d3-shape/blob/master/README.md#area) - create a new area generator.
-* [`d3.curveMonotoneX`](https://github.com/d3/d3-shape/blob/master/README.md#curveMonotoneX) - a cubic spline that, given monotonicity in x, preserves it in y.
-* [`d3.brushX`](https://github.com/d3/d3-brush/blob/master/README.md#brushX) - create a brush along the x-dimension.
+* [`d3.max`](https://github.com/d3/d3-array/blob/master/README.md#max) - Compute the maximum value in an array.
+* [`d3.axisBottom`](https://github.com/d3/d3-axis/blob/master/README.md#axisBottom) - Create a new bottom-oriented axis generator.
+* [`d3.area`](https://github.com/d3/d3-shape/blob/master/README.md#area) - Create a new area generator.
+* [`d3.curveMonotoneX`](https://github.com/d3/d3-shape/blob/master/README.md#curveMonotoneX) - A cubic spline that, given monotonicity in x, preserves it in y.
+* [`d3.brushX`](https://github.com/d3/d3-brush/blob/master/README.md#brushX) - Create a brush along the x-dimension.
 * [`d3.event.selection.map`](https://github.com/d3/d3-selection/blob/master/README.md#event) - Create event with d3 on the brush, when `.selection` changes, `.map` gives start and end position.
 
 # My changes in steps:  How I cleaned data & added multiple interactive visualisations
@@ -210,6 +210,18 @@ brushed() {
 }
 ```
 The `handleBrush` function is actually part of the `App` class allowing me te retreive the data from the brush class and send it to the map.
+
+I set a timeout on the `HandleBrush` function so it doesn't refresh with every small edit a user makes to the brush.
+```JS
+    // Callback for brush events, passes the data to the map
+    handleBrush(value) {
+        // Throttle the map rendering to prevent unneeded actions.
+        clearTimeout(this.brushTimeout) // Reset timeout every time the brush event is called
+        this.brushTimeout = setTimeout(() => {
+            this.map.renderEvents(value) // Call the `renderEvents` function in the map with data from the brush
+        }, 250) // Sets a timeout of 250ms
+    }
+```
 
 And then I only render the circles between the dates selected in the brush with this function:
 ```JS
